@@ -18,12 +18,12 @@ export default class Home extends React.Component {
                             <li className="nav-item">
                                 <a className="nav-link" href="/login">Login</a>
                             </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/logout">Logout</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
-                <div className="container-fluid"> 
-                Welcome to React Bootstrap App
-                </div>
             </div>
         )
     }

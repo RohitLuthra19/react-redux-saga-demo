@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import Routes from "./Routes";
+import Home from './components/Home';
 
 class App extends Component {
   render() {
     return (
-      /* <div>
-        <Navigation />
-        <div className="container">
-          <h1>Rohit</h1>
-        </div>
-      </div> */
       <div>
+        <Home />
         <Routes />
       </div>
     );

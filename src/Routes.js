@@ -4,6 +4,7 @@ import { createBrowserHistory } from 'history'
 
 import Home from "./components/Home";
 import Login from './components/Login';
+import Logout from './components/Logout';
 import Register from './components/Register';
 import Project from './components/Project';
 import AuthService from './services/AuthService';
@@ -24,4 +25,5 @@ export default () =>
         <Route path="/register" exact component={Register} />
         <Route path="/login" exact component={Login} />
         <SecretRoute path="/project" exact component={Project} />
+        <Route path="/logout" exact component={Logout} />
     </Switch>;
