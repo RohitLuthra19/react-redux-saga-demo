@@ -23,6 +23,19 @@ export default class Project extends React.Component {
             link: '',
             team: ''
         }
+        this.baseState = {
+            id: null,
+            name: '',
+            description: '',
+            image: '',
+            technology: '',
+            link: '',
+            team: ''
+        };
+    }
+
+    resetState = event => {
+        this.setState(this.baseState)
     }
 
     createProjectModelFunc = (event) => {
@@ -61,8 +74,6 @@ export default class Project extends React.Component {
             }
             catch (err) {
                 console.log(err);
-                Auth.logout();
-                this.props.history.replace('/login')
             }
         }
     }
@@ -91,6 +102,8 @@ export default class Project extends React.Component {
             .then(res => {
                 if (res._id) {
                     alert("Project added successfully");
+                    this.resetState();
+                    this.createProjectModelFunc();
                     this.getProjects();
                 } else {
                     alert("Something went wrong");
@@ -115,6 +128,8 @@ export default class Project extends React.Component {
         projectService.update(id, body)
             .then(res => {
                 alert(res.message);
+                this.resetState();
+                this.updateProjectModelFunc();
                 this.getProjects();
             })
             .catch(err => {
