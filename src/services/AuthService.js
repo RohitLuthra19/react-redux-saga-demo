@@ -4,10 +4,7 @@ import constants from "../constants";
 export default class AuthService {
 
     constructor(domain) {
-        this.domain = domain || constants.apiurl
-        this.fetch = this.fetch.bind(this)
-        this.login = this.login.bind(this)
-        //this.getProfile = this.getProfile.bind(this)
+        this.domain = domain || constants.apiurl;
     }
 
     login(email, password) {
@@ -74,15 +71,7 @@ export default class AuthService {
         localStorage.removeItem('id_token');
     }
 
-    /* setProfile(user) {
-        return user;
-    }
-
-    getProfile() {
-        return decode(this.getToken());
-    } */
-
-    fetch(url, options) {
+    fetch = (url, options) => {
         // performs api calls sending the required authentication headers
         const headers = {
             'Accept': 'application/json',
@@ -102,7 +91,7 @@ export default class AuthService {
             .then(response => response.json())
     }
 
-    _checkStatus(response) {
+    _checkStatus = (response) => {
         if (response.status >= 200 && response.status < 300) {
             return response
         } else {
