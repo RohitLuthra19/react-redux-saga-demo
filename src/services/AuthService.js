@@ -62,8 +62,8 @@ export default class AuthService {
     }
 
     setToken(idToken) {
-        let token = idToken.split(' ');
-        localStorage.setItem('id_token', token[1]);
+        //let token = idToken.split(' ');
+        localStorage.setItem('id_token', idToken);
     }
 
     getToken() {

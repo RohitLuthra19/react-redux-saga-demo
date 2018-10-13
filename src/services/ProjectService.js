@@ -27,8 +27,8 @@ export default class ProjectService {
         })
     }
 
-    update(body) {
-        let url = `${this.domain}/project/id`;
+    update(id, body) {
+        let url = `${this.domain}/project/${id}`;
         return Auth.fetch(url, {
             method: 'PUT',
             body: JSON.stringify(body)
