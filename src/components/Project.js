@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Project.css";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 import ProjectService from '../services/ProjectService';
@@ -137,10 +138,30 @@ export default class Project extends React.Component {
             })
     }
 
+    handleDelete = (event, project) => {
+        let id = project._id;
+        console.log(id);
+        projectService.delete(id)
+            .then(res => {
+                alert(res.message)
+                this.getProjects();
+            })
+            .catch(err => {
+                alert(err);
+            })
+
+    }
+
     getProjects() {
         projectService.list().then(projects => {
             let temp = JSON.parse(JSON.stringify(projects));
             console.log(temp);
+            temp = temp.sort(function (a, b) {
+                if (a.team > b.team)
+                    return 1
+                else
+                    return -1
+            })
             this.setState({ projectList: temp })
         })
     }
@@ -166,6 +187,7 @@ export default class Project extends React.Component {
                             <th scope="col">Link</th>
                             <th scope="col">Team</th>
                             <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -181,6 +203,7 @@ export default class Project extends React.Component {
                                     <td>{project.link}</td>
                                     <td>{project.team}</td>
                                     <td><button type="button" className="btn btn-primary" onClick={event => this.updateProjectModelFunc(event, project)}>Update</button></td>
+                                    <td><button type="button" className="btn btn-danger" onClick={event => this.handleDelete(event, project)}>Update</button></td>
                                 </tr>
                             );
                         })}

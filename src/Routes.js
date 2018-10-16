@@ -21,7 +21,7 @@ const SecretRoute = ({ component: Component, ...rest }) => (
 
 export default () =>
     <Switch history={createBrowserHistory}>
-        <Route path="/" exact component={Home} />
+        <Route path="/" exact component={Register} />
         <Route path="/register" exact component={Register} />
         <Route path="/login" exact component={Login} />
         <SecretRoute path="/project" exact component={Project} />

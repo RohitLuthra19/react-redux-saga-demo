@@ -37,4 +37,13 @@ export default class ProjectService {
         })
     }
 
+    delete(id) {
+        let url = `${this.domain}/project/${id}`;
+        return Auth.fetch(url, {
+            method: 'DELETE'
+        }).then(res => {
+            return Promise.resolve(res);
+        })
+    }
+
 }
