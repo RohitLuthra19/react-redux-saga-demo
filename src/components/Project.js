@@ -203,7 +203,7 @@ export default class Project extends React.Component {
                                     <td>{project.link}</td>
                                     <td>{project.team}</td>
                                     <td><button type="button" className="btn btn-primary" onClick={event => this.updateProjectModelFunc(event, project)}>Update</button></td>
-                                    <td><button type="button" className="btn btn-danger" onClick={event => this.handleDelete(event, project)}>Update</button></td>
+                                    <td><button type="button" className="btn btn-danger" onClick={event => this.handleDelete(event, project)}>Delete</button></td>
                                 </tr>
                             );
                         })}

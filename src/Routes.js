@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { createBrowserHistory } from 'history'
 
-import Home from "./components/Home";
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Register from './components/Register';
